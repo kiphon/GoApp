@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to GoApp</h1>
+        {% comment %} <div class="icon-container">
+            <div class="icons">
+                <img src="{% static 'icon/1234.jpg' %}" alt="Image">
+            </div>
+        </div> {% endcomment %}
+    </div>
+    
+       
+    <p>
+            Welcome to the ultimate car booking experience with our cutting-edge Car Booking App! Whether you need a vehicle for a weekend getaway, a business trip, or a special occasion, our app is designed to cater to all your transportation needs with ease and convenience. <br/>
+            Experience the freedom and convenience of having the perfect car at your fingertips. Download our Car Booking App today and embark on your next journey with confidence and style. Whether you are commuting, exploring, or celebrating, our app is your trusted companion for all your car rental needs.
+    </p>
+
+    <div class="form-container">
+        <form method="POST" action="{% url 'myapp:login' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="Username">Username:</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+
+            <!-- Display messages, if any -->
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <!-- Registration Link -->
+            <h2>Don't have an account?</h2>
+            <a href="{% url 'myapp:register' %}">Register</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+</head>
+<body>
+    <h1>Checkout</h1>
+    <form method="POST" action="{% url 'myapp:checkout' %}">
+        {% csrf_token %}
+        <div>
+            <label for="delivery_date">Delivery Date:</label>
+            <input type="date" name="delivery_date" id="delivery_date" required>
+        </div>
+        <div>
+            <label for="delivery_time">Delivery Time:</label>
+            <input type="time" name="delivery_time" id="delivery_time" required>
+        </div>
+        <button type="submit">Book</button>
+    </form>
+</body>
+</html>
+

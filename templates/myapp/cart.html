@@ -1,0 +1,48 @@
+<!-- templates/myapp/cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header1">
+        <h1>Shopping Cart</h1> 
+    </div>
+    <div class="product-list">
+        <form action="{% url 'myapp:remove_from_cart' %}" method="post">
+            {% csrf_token %}
+            <ul>
+                {% for product in products_in_cart %}
+                    <li>
+                        <input type="checkbox" name="product_ids" value="{{ product.id }}">
+                        {{ product.name }} - ${{ product.price }}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% if products_in_cart.exists %}
+                <button type="submit">Remove</button>
+            {% else %}
+                <p>Your cart is empty.</p>
+            {% endif %}
+        </form>
+        {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+    </div>
+   
+    <p>Total Price: ${{ total_price }}</p>
+    <div class="pay">
+        <a href="{% url 'myapp:payment' %}">Pay</a>
+    </div>
+    <a href="{% url 'myapp:product_list' %}">Continue Shopping</a>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!-- templates/myapp/register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1>User Registration</h1>
+    </div>
+
+    <div class="tabs">
+        <nav>
+            <a href="{% url 'myapp:index' %}">Return to home</a>
+        </nav>
+    </div>
+
+    <div class="form-contain">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method="POST" action="{% url 'myapp:register' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+        <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

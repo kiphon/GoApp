@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+</head>
+<body>
+    <h1>Payment</h1>
+    <form method="POST" action="{% url 'myapp:payment' %}">
+        {% csrf_token %}
+        <div>
+            <label for="payment_method">Payment Method:</label>
+            <select name="payment_method" id="payment_method" required>
+                <option value="">Select a method</option>
+                <option value="Mpesa">Mpesa</option>
+                <option value="Card">Card</option>
+            </select>
+        </div>
+        <div id="mpesa_code_field" style="display:none;">
+            <label for="mpesa_code">Mpesa Code:</label>
+            <input type="text" name="mpesa_code" id="mpesa_code">
+        </div>
+        <div id="card_number_field" style="display:none;">
+            <label for="card_number">Card Number:</label>
+            <input type="text" name="card_number" id="card_number">
+        </div>
+        <button type="submit">Pay</button>
+    </form>
+    <script>
+        document.getElementById('payment_method').addEventListener('change', function() {
+            var method = this.value;
+            document.getElementById('mpesa_code_field').style.display = method === 'Mpesa' ? 'block' : 'none';
+            document.getElementById('card_number_field').style.display = method === 'Card' ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

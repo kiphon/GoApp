@@ -1,0 +1,27 @@
+<!-- templates/myapp/profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="header1">
+            <h1>My Profile</h1>
+        <div/>
+        <br/>
+        <div class="iconn">
+            <i class="fas fa-user"></i>
+        </div>
+        <p>Welcome, {{ user.username }}!</p>
+        <a href="{% url 'myapp:logout' %}">Logout</a>
+        <a href="{% url 'myapp:product_list' %}">Go Back</a>
+    </div> 
+    
+</body>
+</html>

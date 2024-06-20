@@ -1,0 +1,181 @@
+body{
+    background:palegoldenrod;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+}
+
+
+.header  {
+    color:rgb(170, 238, 200);
+    font-family: Arial, sans-serif;
+    padding: 6;
+    background-color: #250303;
+    text-align: center;
+    width: 100%;
+    border-bottom: #150320 3px solid;
+    border-radius: 8px;
+ 
+}
+
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 50px;
+    width: 95%;
+}
+.product-container {
+    color:rgb(114, 126, 119);
+    padding: 10px;
+    margin: 16px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: auto;
+    height:auto;
+    background: white;
+    border: 1px solid #724444;
+}
+.product-image {
+    max-width: 50%;
+    height: auto;
+    border-radius: 8px;
+}
+.product-name {
+    font-size: 1.5em;
+    margin: 8px 0;
+}
+.product-description {
+    font-size: 0.7em;
+    margin: 0px 0;
+    color: black;
+    font-weight: bold;
+    
+}
+.product-price {
+    font-size: 1.2em;
+    margin: 8px 0;
+    color: #b12704;
+    
+}
+.book {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 16px;
+    border-radius: 8px;
+    text-align: center;
+    height: 15px;
+    width: auto;
+    position: relative;
+}
+.social-media-icons {
+    text-align: right;
+    padding: 20px;
+    
+}
+
+.social-media-icons a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #1ca5db;
+    font-size: 24px;
+    transition: color 0.3s ease;
+    text-align: right;
+}
+
+.social-media-icons a:hover {
+    color: #007bff; /* Change this to the color you want on hover */
+}
+
+footer{
+    color: palegoldenrod;
+    font-family: Arial, sans-serif;
+    padding: 6px;
+    background-color: #250303;
+    display: flex;
+    padding: 10px; /* Adjust padding as needed */
+    border-radius: 8px;
+    height: 22px;
+    border: #d4c9c9;
+    justify-content: right;
+}
+button{
+    background: #250303;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 50%;
+    color: bisque;
+    position: relative;
+}
+button:hover{
+    background: #007bff;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 50%;
+    color: bisque;
+    position: relative;
+}
+
+.icons {
+    padding: 0px;
+    background-color: #d8cdcd;
+    width: 80px;
+    border-bottom: #150320 3px solid;
+    border-radius: 60px;
+    height: 80px;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    height: 100%;
+}
+img {
+    width: 80px;
+    height: auto;
+    border-radius: 70px;
+    margin: 0px;
+}
+.tab {
+    display: flex;
+    padding: 10px; /* Adjust padding as needed */
+    background-color: #333; /* Example background color */
+    border-radius: 8px;
+    height: 22px;
+    border: #d8cdcd;
+
+}
+
+.tab nav {
+    display: flex;
+    gap: 20px; /* Adjust space between items */
+    width: 100%;
+    border-radius: 8px;
+    justify-content: right;
+    font-size: 20px;
+}
+.tab nav2 {
+    display: flex;
+    gap: 20px; /* Adjust space between items */
+    width: 100%;
+    border-radius: 8px;
+    justify-content: left;
+    font-size: 20px;
+}
+.tab nav a {
+    
+    text-decoration: none;
+    color: hsl(162, 100%, 82%); /* Link color */
+    padding: 10px; /* Adjust padding as needed */
+    font-size: 20px;
+}
+.tab nav2 a {
+    text-decoration: none;
+    color: hsl(162, 100%, 82%); /* Link color */
+    padding: 10px; /* Adjust padding as needed */
+    font-size: 20px;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/productlist.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Product List</h1> 
+    </div>
+    <div class="tab">
+        <nav2>
+            <a href="{% url 'myapp:index' %}">Return to home</a>|
+        </nav2>
+        <nav> 
+            <a href="{% url 'myapp:cart' %}">Cart</a>|
+            <a href="{% url 'myapp:profile' %}"><i class="fas fa-user"></i> User Profile</a>
+        </nav>
+    </div>
+    
+    
+    <div class="product-list">
+        {% for product in products %}
+            <div class="product-container">
+                <h2 class="product-name">{{ product.name }}</h2>
+                <a href="{% url 'myapp:product_detail' product.pk %}">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                    {% endif %}
+                </a>
+                <p class="product-description">{{ product.description }}</p>
+                <p class="product-price">Price: ${{ product.price }}</p> <br>
+                <div class="book">
+                    <form action="{% url 'myapp:add_to_cart' product.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Add to cart</button>
+                    </form>
+                    {% if messages %}
+                      <ul class="messages">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                     </ul>
+                   {% endif %}
+                </div>
+            </div> 
+            
+            
+        {% endfor %}
+    </div>
+
+    <footer>
+        <nav2> 
+            <p>&copy; 2024 GoApp</p>
+        </nav2>
+        
+        
+        <div class="social-media-icons">
+            <a href="https://www.instagram.com/K3lvin81" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/NjugunaKelvin" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/KelvinNjuguna" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://wa.me/0759665520" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
